@@ -2,9 +2,12 @@ var fs = require('fs');
 var Path = require('path');
 
 module.exports = function(req, res){
-	var path = Path.resolve(__dirname, '..','public','img');
-	var urlpath = '/img'
-	var dirList = fs.readdirSync(path);
+    /*
+        读取图片素材目录信息并返回
+    */
+    var path = Path.resolve(__dirname, '..','public','img');
+    var urlpath = '/img'
+    var dirList = fs.readdirSync(path);
     let ret = {};
     dirList.forEach(function(item){
         if(fs.statSync(path + '/' + item).isDirectory()){
@@ -18,5 +21,5 @@ module.exports = function(req, res){
             });
         }
     });
-	res.json(ret);
+    res.json(ret);
 }

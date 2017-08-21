@@ -6,6 +6,9 @@ function saveData(data){
 }
 
 module.exports = function(req, res){
+    /*
+        作出改动时，保存新的位置信息
+    */
     var data=JSON.parse(fs.readFileSync(path));
     if(req.query.modelname===req.query.imgname){
         let key = req.query.modelname;
